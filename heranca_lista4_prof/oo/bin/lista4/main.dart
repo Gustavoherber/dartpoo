@@ -7,7 +7,6 @@ import 'supervisor.dart';
 import 'total_binificacoes.dart';
 
 void main(List<String> args) {
-  
   List<Funcionario> listaFuncionarios = [];
   List<Gerente> listaGerentes = [];
   List<Engenheiro> listaEngenheiros = [];
@@ -19,12 +18,13 @@ void main(List<String> args) {
   // listaSupervisores = [Supervisor(nome: 'Aroldo', cpf: '444', salario: 1000)];
 
   TotalBonificacoes totalBonificacoes = TotalBonificacoes();
-  
+
   String opc = '';
-  while(opc != '5'){
-    print('Informe a opção:\n1. Funcionário\n2. Gerente\n3. Engenheiro\n4. Supervisor\n5. Sair');
+  while (opc != '5') {
+    print(
+        'Informe a opção:\n1. Funcionário\n2. Gerente\n3. Engenheiro\n4. Supervisor\n5. Sair');
     opc = stdin.readLineSync()!;
-    switch(opc){
+    switch (opc) {
       case '1':
       case '2':
       case '3':
@@ -34,19 +34,23 @@ void main(List<String> args) {
         print('Informe o cpf');
         String cpf = stdin.readLineSync()!;
         print('Informe o salário');
-        double salario = double.parse( stdin.readLineSync()! );
-        switch(opc){
+        double salario = double.parse(stdin.readLineSync()!);
+        switch (opc) {
           case '1':
-            listaFuncionarios.add( Funcionario(nome: nome, cpf: cpf, salario: salario) );
+            listaFuncionarios
+                .add(Funcionario(nome: nome, cpf: cpf, salario: salario));
             break;
           case '2':
-            listaGerentes.add( Gerente(nome: nome, cpf: cpf, salario: salario) );
+            listaFuncionarios
+                .add(Gerente(nome: nome, cpf: cpf, salario: salario));
             break;
           case '3':
-            listaEngenheiros.add( Engenheiro(nome: nome, cpf: cpf, salario: salario) );
+            listaFuncionarios
+                .add(Engenheiro(nome: nome, cpf: cpf, salario: salario));
             break;
           case '4':
-            listaSupervisores.add( Supervisor(nome: nome, cpf: cpf, salario: salario) );
+            listaFuncionarios
+                .add(Supervisor(nome: nome, cpf: cpf, salario: salario));
             break;
         }
         break;
@@ -58,28 +62,30 @@ void main(List<String> args) {
   }
 
   print('Funcionários:');
-  for(int i = 0 ; i < listaFuncionarios.length ; i++){    // For tradicional com indices
+  for (int i = 0; i < listaFuncionarios.length; i++) {
+    // For tradicional com indices
     print(listaFuncionarios[i]);
     totalBonificacoes.add(listaFuncionarios[i].calcularBonificacao());
   }
 
-  print('Gerentes:');
-  for(final gerente in listaGerentes){    //For reduzido
-    print(gerente);
-    totalBonificacoes.add(gerente.calcularBonificacao());
-  }
+  // print('Gerentes:');
+  // for(final gerente in listaGerentes){    //For reduzido
+  //   print(gerente);
+  //   totalBonificacoes.add(gerente.calcularBonificacao());
+  // }
 
-  print('Engenheiros:');
-  listaEngenheiros.forEach((engenheiro){   //ForEach
-    print(engenheiro);
-    totalBonificacoes.add(engenheiro.calcularBonificacao());
-  });
+  // print('Engenheiros:');
+  // listaEngenheiros.forEach((engenheiro){   //ForEach
+  //   print(engenheiro);
+  //   totalBonificacoes.add(engenheiro.calcularBonificacao());
+  // });
 
-  print('Supervisores:');
-  listaSupervisores.forEach((supervisor){
-    print(supervisor);
-    totalBonificacoes.add(supervisor.calcularBonificacao());
-  });
+  // print('Supervisores:');
+  // listaSupervisores.forEach((supervisor){
+  //   print(supervisor);
+  //   totalBonificacoes.add(supervisor.calcularBonificacao());
+  // });
 
-  print('Total das bonificações: ${totalBonificacoes.getValorTotal().toStringAsFixed(2)}');
+  print(
+      'Total das bonificações: ${totalBonificacoes.getValorTotal().toStringAsFixed(2)}');
 }
