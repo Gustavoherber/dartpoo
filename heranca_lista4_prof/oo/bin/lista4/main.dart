@@ -8,9 +8,9 @@ import 'total_binificacoes.dart';
 
 void main(List<String> args) {
   List<Funcionario> listaFuncionarios = [];
-  List<Gerente> listaGerentes = [];
-  List<Engenheiro> listaEngenheiros = [];
-  List<Supervisor> listaSupervisores = [];
+  // List<Gerente> listaGerentes = [];
+  // List<Engenheiro> listaEngenheiros = [];
+  // List<Supervisor> listaSupervisores = [];
 
   // listaFuncionarios = [Funcionario(nome: 'Leo', cpf: '111', salario: 1000)];
   // listaGerentes = [Gerente(nome: 'Ivo', cpf: '222', salario: 1000)];
